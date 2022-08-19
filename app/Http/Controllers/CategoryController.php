@@ -14,7 +14,8 @@ class CategoryController extends Controller
         $category->save();
     }
 
-    public function index(){
+    public function index()
+    {
         $categories = Categories::get();
         return $categories;
     }

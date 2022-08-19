@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Exceptions\NeMoguOtrabotatEx;
 use App\Http\Controllers\FirstController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\TemplateController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,3 +29,4 @@ Route::get('/home', function (){
 Route::get('/first', [FirstController::class, 'info']);
 Route::get('/set-category', [CategoryController::class, 'set']);
 Route::get('/get-category', [CategoryController::class, 'index']);
+Route::get('/send-mail', [NotificationController::class, 'sendEmail']);
