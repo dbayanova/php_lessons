@@ -2,8 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\COntrollers\NotificationController;
-use App\Http\COntrollers\TemplateController;
+use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\TemplateController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -26,5 +26,5 @@ Route::delete('/delete/{id}', [TemplateController::class, 'delete']);
 Route::delete('/delete-notification', [NotificationController::class, 'delete']);
 Route::get('/get-list-templates', [TemplateController::class, 'list']);
 Route::get('/get-list-notifications', [NotificationController::class, 'list']);
-Route::get('/get-item-template', [TemplateController::class, 'item']);
-Route::get('/get-item-notification', [NotificationController::class, 'item']);
+Route::get('/get-item-template/{id}', [TemplateController::class, 'item']);
+Route::get('/get-item-notification/{id}', [NotificationController::class, 'item']);

@@ -57,10 +57,10 @@ class NotificationController extends Controller
         return $notification;
     }
 
-    public function item(Request $request)
+    public function item(Request $request, $id)
     {
-        $notification = Notification::get();
-        if ($notification->id == $request->id)
+        $notification = Notification::find($id);
+        if ($notification->id == $id)
         {
             return $notification;
         }
@@ -73,9 +73,9 @@ class NotificationController extends Controller
     public function sendEmail(Request $request)
     {
         $recipient = 'danes0407@gmail.com';
-        $message = Template::where('name', '==', $request->name)->first();
+        $message = Template::where('name', '=', $request->name)->first(); //$message = ['name' => 'hello']
         Mail::to($recipient)->send(new Email($message));
-
         return 'сообщение отправлено';
+           
     }
 }

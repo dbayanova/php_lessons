@@ -61,10 +61,10 @@ class TemplateController extends Controller
         return $templates;
     }
 
-    public function item(Request $request)
+    public function item(Request $request, $id)
     {
-        $template = Template::get();
-        if ($template->name == $request->name)
+        $template = Template::find($id);
+        if ($template->id == $id)
         {
             return $template;
         }
