@@ -29,4 +29,3 @@ Route::get('/home', function (){
 Route::get('/first', [FirstController::class, 'info']);
 Route::get('/set-category', [CategoryController::class, 'set']);
 Route::get('/get-category', [CategoryController::class, 'index']);
-Route::get('/send-mail', [NotificationController::class, 'sendEmail']);

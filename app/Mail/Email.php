@@ -31,6 +31,6 @@ class Email extends Mailable
      */
     public function build()
     { 
-        return $this->view('abs.email')->with(['text' => $this->message->text]);
+        return $this->view('email')->with(['text' => $this->message->text]);
     }
 }

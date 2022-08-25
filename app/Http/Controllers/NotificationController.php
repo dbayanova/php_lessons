@@ -70,13 +70,21 @@ class NotificationController extends Controller
         }
     }
 
-    public function sendEmail(Request $request)
+    public function sendEmail(Request $request, $id)
     {
+        $sender = $request->sender;
         $recipient = 'danes0407@gmail.com';
-        $my_message = ;
-        $message = Template::where('name', '=', $request->name)->first(); //$message = ['name' => 'hello']
+        $message_sent = 'сообщение отправлено от: ';
+        $split = str_split($message_sent);
+        $count = 0;
+        $message = Template::where('id', '=', $id)->first(); //$message = ['1' => 'hello']
         Mail::to($recipient)->send(new Email($message));
-        return 'сообщение отправлено';
-
+        foreach($split as $symbol)
+        {
+            $count += 1;
+        }
+        $str_find = substr($message_sent, $count-1, 1);
+        $replace = str_replace($str_find, $sender, $message_sent);
+        return $replace;
     }
 }
