@@ -73,9 +73,10 @@ class NotificationController extends Controller
     public function sendEmail(Request $request)
     {
         $recipient = 'danes0407@gmail.com';
+        $my_message = ;
         $message = Template::where('name', '=', $request->name)->first(); //$message = ['name' => 'hello']
         Mail::to($recipient)->send(new Email($message));
         return 'сообщение отправлено';
-           
+
     }
 }
