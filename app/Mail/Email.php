@@ -12,15 +12,18 @@ class Email extends Mailable
     use Queueable, SerializesModels;
 
     protected $message = null;
+    protected $message_sent = null;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($message)
+    public function __construct($message, $my_text, $message_sent)
     {
         $this->message = $message;
+        $this->my_text = $my_text;
+        $this->message_sent = $message_sent;
        
     }
 
@@ -31,6 +34,8 @@ class Email extends Mailable
      */
     public function build()
     { 
-        return $this->view('email')->with(['text' => $this->message->text]);
+        return $this->view('email')->with(['text' => $this->message->text,
+                                           'my_text' => $this->my_text,
+                                           'message_sent' => $this->message_sent]);
     }
 }
