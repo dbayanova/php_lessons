@@ -23,9 +23,7 @@ class TemplateController extends Controller
         $template = Template::find($id);
         if ($id == $template->id)
         {
-            $template->name = $request->name;
-            $template->text = $request->text;
-            
+            $template->text = $request->text;  
         }
         else
         {

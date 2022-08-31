@@ -28,4 +28,4 @@ Route::get('/templates-list', [TemplateController::class, 'list']);
 Route::get('/notifications-list', [NotificationController::class, 'list']);
 Route::get('/item-template/{id}', [TemplateController::class, 'item']);
 Route::get('/item-notification/{id}', [NotificationController::class, 'item']);
-Route::post('/send-mail/{id}/{my_text}/{sender}', [NotificationController::class, 'sendEmail']);
+Route::post('/send-mail/{id}/{sender}', [NotificationController::class, 'sendEmail']);

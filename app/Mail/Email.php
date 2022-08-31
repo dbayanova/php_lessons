@@ -35,7 +35,6 @@ class Email extends Mailable
     public function build()
     { 
         return $this->view('email')->with(['text' => $this->message->text,
-                                           'my_text' => $this->my_text,
                                            'message_sent' => $this->message_sent]);
     }
 }
